@@ -3,7 +3,7 @@
  */
 var path = require("path");
 var webpack = require("webpack");
-
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 module.exports = {
     entry: ['babel-polyfill', './src/main.js'],
     output: {
@@ -15,6 +15,7 @@ module.exports = {
         historyApiFallback: true,
         overlay: true
     },
+    devtool: '#eval-source-map',
     resolve: {
         alias: {
             'vue$': 'vue/dist/vue.esm.js'
@@ -52,8 +53,28 @@ module.exports = {
                 options:{
                     name:'[name].[ext]?[hash]'
                 }
+            },{
+                test:/\.vue$/,
+                loader:'vue-loader',
+                options:{
+                    loaders:{
+                        'scss': [
+                            'vue-style-loader',
+                            'css-loader',
+                            'sass-loader'
+                        ],
+                        'sass': [
+                            'vue-style-loader',
+                            'css-loader',
+                            'sass-loader?indentedSyntax'
+                        ]
+                    }
+                }
             }
         ]
-    }
+    },
+    plugins: [
+        new VueLoaderPlugin()
+    ]
 
 }
