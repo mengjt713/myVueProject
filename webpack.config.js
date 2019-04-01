@@ -3,7 +3,8 @@
  */
 var path = require("path");
 var webpack = require("webpack");
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
     entry: ['babel-polyfill', './src/main.js'],
     output: {
@@ -76,5 +77,31 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin()
     ]
+}
 
+if (process.env.NODE_ENV === 'production') {
+    module.exports.devtool = '#source-map';
+    module.exports.plugins = (module.exports.plugins || []).concat([
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: '"production"'
+            }
+        })
+    ]);
+    module.exports.optimization ={
+        minimizer: [
+            new UglifyJSPlugin({
+                uglifyOptions: {
+                    output: {
+                        comments: false
+                    },
+                    compress: {
+                        warnings: false,
+                        drop_debugger: true,
+                        drop_console: true
+                    }
+                }
+            }),
+        ]
+    }
 }
