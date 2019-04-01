@@ -1,0 +1,15 @@
+/**
+ * Created by mengjintao on 2019/4/1.
+ */
+{
+    "presets": [
+    ["env", {
+        "modules": false,
+//        "targets": {
+//            "browsers": ["ie >=9"]
+//        },
+        "useBuiltIns": true,
+        "debug": true
+    }]
+]
+}

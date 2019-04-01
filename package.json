@@ -1,0 +1,43 @@
+{
+  "name": "vue",
+  "version": "1.0.0",
+  "description": "vue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --open --hot",
+    "build": "webpack --progress --hide-modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mengjt713/myVueProject.git"
+  },
+  "dependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "vue": "^2.5.13",
+    "webpack-cli": "^3.3.0"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "mengjintao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mengjt713/myVueProject/issues"
+  },
+  "homepage": "https://github.com/mengjt713/myVueProject#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "css-loader": "^2.1.1",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "vue-style-loader": "^4.1.2",
+    "webpack": "^4.29.6",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
